@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* 🎁 Gift Box */
+.gift-container {
+    text-align: center;
+    cursor: pointer;
+}
+
+.gift-box {
+    width: 260px;
+    height: 260px;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+.gift-base {
+    width: 100%;
+    height: 200px;
+    background: #cfeee7;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 15px 15px;
+}
+
+.gift-lid {
+    width: 100%;
+    height: 60px;
+    background: #e63946;
+    position: absolute;
+    top: 0;
+    transform-origin: bottom;
+    transition: transform 1.4s ease;
+}
+
+.gift-lid.open {
+    transform: rotateX(-160deg);
+}
+
+.ribbon-vertical {
+    width: 28px;
+    height: 100%;
+    background: #e63946;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ribbon-horizontal {
+    width: 100%;
+    height: 28px;
+    background: #e63946;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bow {
+    width: 60px;
+    height: 60px;
+    background: #e63946;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.click-text {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* 🎉 Wishes Section */
+.wishes-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #cfeee7;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.wishes-container.show {
+    opacity: 1;
+}
+
+.card {
+    background: rgba(255,255,255,0.9);
+    padding: 40px 30px;
+    border-radius: 22px;
+    text-align: center;
+    max-width: 750px;
+    width: 90%;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: fadeUp 1.5s ease;
+}
+
+#wishText {
+    font-size: 3.6rem;
+    color: #1f2933;
+    font-weight: 700;
+}
+
+#heartlessText {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2rem;
+    color: #e63946;
+    margin: 15px 0;
+}
+
+#subWish {
+    font-size: 1.3rem;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* ❄ Snow */
+.snowflake {
+    position: absolute;
+    font-size: 1.4rem;
+    animation: snow 8s linear infinite;
+}
+
+/* 🎊 Confetti */
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: fall 5s linear infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+    50% { transform: scale(1.05); }
+}
+
+@keyframes glow {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes snow {
+    to { transform: translateY(100vh); }
+}
+
+.hidden {
+    display: none;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+    #wishText { font-size: 2.4rem; }
+    #heartlessText { font-size: 2.3rem; }
+    #subWish { font-size: 1.1rem; }
+}
